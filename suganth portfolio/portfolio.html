@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suganth's Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <style>
+    :root {
+      --bg: linear-gradient(to right, #141e30, #243b55);
+      --text: #ffffff;
+      --accent: #00f7ff;
+      --card-bg: rgba(255, 255, 255, 0.05);
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: 'Outfit', sans-serif;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      position: relative;
+    }
+    header {
+      padding: 60px 20px 20px;
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: var(--accent);
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+      position: relative;
+      z-index: 2;
+    }
+    section {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 30px;
+      margin-bottom: 50px;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+    }
+    h2 {
+      color: var(--accent);
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+      border-left: 4px solid var(--accent);
+      padding-left: 10px;
+    }
+    p, li {
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 10px;
+    }
+    .project, .skill {
+      margin: 10px 0;
+      padding: 12px;
+      background: #ffffff0a;
+      border-left: 4px solid var(--accent);
+      border-radius: 8px;
+      transition: transform 0.3s;
+    }
+    .project:hover, .skill:hover {
+      transform: scale(1.03);
+    }
+    a.link {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a.link:hover {
+      text-decoration: underline;
+    }
+    .animated-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      background: black;
+    }
+    canvas#stars {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      z-index: 0;
+    }
+    .counters {
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+      margin-top: 30px;
+    }
+    .counter-box {
+      background: #ffffff0a;
+      padding: 20px;
+      border-radius: 10px;
+      width: 30%;
+      box-shadow: 0 0 10px #00000044;
+    }
+    .counter-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: var(--accent);
+    }
+    .counter-label {
+      font-size: 1.2rem;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="animated-bg">
+    <canvas id="stars"></canvas>
+  </div>
+
+  <header data-aos="fade-down">Suganth's Portfolio</header>
+
+  <div class="container">
+    <section id="about" data-aos="fade-up">
+      <h2>About Me</h2>
+      <p>Hello! I'm Suganth, a dedicated Computer Science and Engineering student at SSN College of Engineering. I enjoy building sleek and responsive web apps, solving challenging algorithmic problems, and continuously improving my skills. My academic journey is powered by curiosity and a strong foundation in logic and programming.</p>
+
+      <div class="counters">
+        <div class="counter-box">
+          <div class="counter-number" data-target="237">0</div>
+          <div class="counter-label">Problems Solved</div>
+        </div>
+        <div class="counter-box">
+          <div class="counter-number" data-target="3">0</div>
+          <div class="counter-label">Projects Built</div>
+        </div>
+        <div class="counter-box">
+          <div class="counter-number" data-target="0">0</div>
+          <div class="counter-label">Years of Experience</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" data-aos="fade-up">
+      <h2>Education</h2>
+      <ul>
+        <li><strong>SSN College of Engineering</strong> – B.E. CSE (2023 - 2027)<br>Currently pursuing 2nd semester with a CGPA of <strong>8.455</strong>. Known for its strong academic curriculum, SSN offers a vibrant environment for innovation and research, helping students achieve both academic and personal growth.</li>
+      </ul>
+    </section>
+
+    <section id="skills" data-aos="fade-up">
+      <h2>Skills</h2>
+      <div class="skill">Languages: C, C++, Python</div>
+      <div class="skill">Frontend: HTML5, CSS3, JavaScript</div>
+      <div class="skill">Tools: Git, GitHub, VSCode</div>
+      <div class="skill">Concepts: OOP, DSA, Web Dev</div>
+    </section>
+
+    <section id="projects" data-aos="fade-up">
+      <h2>Mini Projects</h2>
+      <div class="project">
+        <strong>BMI Calculator</strong>
+        <p>A stylish tool to calculate your Body Mass Index.</p>
+        <a class="link" href="https://suganthssn.github.io/htmlprojects/bmi/" target="_blank">View Project</a>
+      </div>
+      <div class="project">
+        <strong>Quiz App</strong>
+        <p>Interactive quiz game with live scoring and user feedback.</p>
+        <a class="link" href="https://suganthssn.github.io/htmlprojects/" target="_blank">View Project</a>
+      </div>
+      <div class="project">
+        <strong>Love Calculator</strong>
+        <p>Fun app to calculate love compatibility between two names.</p>
+        <a class="link" href="https://suganthssn.github.io/htmlprojects/Love%20Calculater/" target="_blank">View Project</a>
+      </div>
+    </section>
+
+    <section id="profiles" data-aos="fade-up">
+      <h2>Online Profiles</h2>
+      <p><a class="link" href="https://leetcode.com/u/borusara/" target="_blank">LeetCode</a></p>
+      <p><a class="link" href="https://codeforces.com/profile/Suga_T" target="_blank">Codeforces</a></p>
+    </section>
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    const counters = document.querySelectorAll('.counter-number');
+    counters.forEach(counter => {
+      counter.innerText = '0';
+      const updateCounter = () => {
+        const target = +counter.getAttribute('data-target');
+        const current = +counter.innerText;
+        const increment = target / 200;
+        if (current < target) {
+          counter.innerText = `${Math.ceil(current + increment)}`;
+          setTimeout(updateCounter, 20);
+        } else {
+          counter.innerText = target;
+        }
+      }
+      updateCounter();
+    });
+
+    // Star background animation
+    const canvas = document.getElementById('stars');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+    const numStars = 150;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    for (let i = 0; i < numStars; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.5,
+        d: Math.random() * 1
+      });
+    }
+
+    function drawStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#00f7ff';
+      for (let i = 0; i < stars.length; i++) {
+        let s = stars[i];
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, 2 * Math.PI);
+        ctx.fill();
+      }
+      moveStars();
+    }
+
+    function moveStars() {
+      for (let i = 0; i < stars.length; i++) {
+        stars[i].y += stars[i].d;
+        if (stars[i].y > canvas.height) {
+          stars[i].y = 0;
+          stars[i].x = Math.random() * canvas.width;
+        }
+      }
+    }
+
+    function animateStars() {
+      drawStars();
+      requestAnimationFrame(animateStars);
+    }
+    animateStars();
+  </script>
+</body>
+</html>
