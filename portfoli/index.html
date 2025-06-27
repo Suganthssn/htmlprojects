@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarah Johnson - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-light: #3b82f6;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f9fafb;
+            --border: #e5e7eb;
+            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 73px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 48px;
+            text-align: center;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0;
+            text-align: center;
+            background: var(--bg-secondary);
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .hero-content .subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            border: 1px solid var(--primary);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+            border-color: var(--primary-light);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-secondary);
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 64px;
+            align-items: start;
+        }
+
+        .profile-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            background: var(--primary);
+            border-radius: 50%;
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 36px;
+            font-weight: 600;
+        }
+
+        .profile-name {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .profile-role {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .profile-info {
+            text-align: left;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .about-content h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .about-text {
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 12px;
+        }
+
+        .skill-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px 16px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        /* Profiles Section */
+        .profiles {
+            background: var(--bg-secondary);
+        }
+
+        .profiles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 32px;
+        }
+
+        .profile-card-large {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: var(--shadow);
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .platform-logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .leetcode {
+            background: #ffa116;
+        }
+
+        .codeforces {
+            background: #1f8acb;
+        }
+
+        .platform-info h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .platform-info p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .stat-card {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .profile-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .profile-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .project-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.2s ease;
+        }
+
+        .project-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .project-header {
+            padding: 24px 24px 0;
+        }
+
+        .project-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            margin-bottom: 16px;
+        }
+
+        .project-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .tech-tag {
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .project-footer {
+            padding: 0 24px 24px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .project-link {
+            flex: 1;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .link-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .link-primary:hover {
+            background: var(--primary-light);
+        }
+
+        .link-secondary {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .link-secondary:hover {
+            background: var(--border);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            padding: 48px 0;
+            text-align: center;
+        }
+
+        .footer-content p {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+        }
+
+        .social-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .social-link:hover {
+            color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .hero-content .subtitle {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 28px;
+                margin-bottom: 32px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .profiles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 200px;
+                justify-content: center;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Sarah Johnson</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#profiles">Profiles</a></li>
+                <li><a href="#projects">Projects</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Computer Science Student</h1>
+                    <p class="subtitle">Passionate about algorithms, competitive programming, and building innovative solutions</p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">View Projects</a>
+                        <a href="#about" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-grid">
+                    <div class="profile-card fade-in">
+                        <div class="profile-avatar">SJ</div>
+                        <h3 class="profile-name">Sarah Johnson</h3>
+                        <p class="profile-role">CS Student & Developer</p>
+                        <div class="profile-info">
+                            <div class="info-item">
+                                <span>📍</span>
+                                <span>San Francisco, CA</span>
+                            </div>
+                            <div class="info-item">
+                                <span>🎓</span>
+                                <span>Junior at Stanford University</span>
+                            </div>
+                            <div class="info-item">
+                                <span>💻</span>
+                                <span>Software Engineering Focus</span>
+                            </div>
+                            <div class="info-item">
+                                <span>📧</span>
+                                <span>sarah.johnson@email.com</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-content fade-in">
+                        <h3>Hello, I'm Sarah!</h3>
+                        <div class="about-text">
+                            <p>I'm a Computer Science student at Stanford University with a passion for competitive programming and software development. My journey began with curiosity about how technology shapes our world, and has evolved into a deep commitment to creating efficient, elegant solutions to complex problems.</p>
+                            
+                            <p>I actively participate in programming contests on platforms like LeetCode and Codeforces, where I've developed strong problem-solving skills and algorithmic thinking. When I'm not solving coding challenges, I enjoy building projects that combine my technical skills with real-world applications.</p>
+                            
+                            <p>I'm always eager to learn new technologies and collaborate on interesting projects. Feel free to reach out if you'd like to connect!</p>
+                        </div>
+                        
+                        <div class="skills-grid">
+                            <div class="skill-item">Python</div>
+                            <div class="skill-item">Java</div>
+                            <div class="skill-item">C++</div>
+                            <div class="skill-item">JavaScript</div>
+                            <div class="skill-item">React</div>
+                            <div class="skill-item">Node.js</div>
+                            <div class="skill-item">SQL</div>
+                            <div class="skill-item">Git</div>
+                            <div class="skill-item">AWS</div>
+                            <div class="skill-item">Docker</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profiles Section -->
+        <section id="profiles" class="profiles">
+            <div class="container">
+                <h2 class="section-title">Coding Profiles</h2>
+                <div class="profiles-grid">
+                    <div class="profile-card-large fade-in">
+                        <div class="profile-header">
+                            <div class="platform-logo leetcode">LC</div>
+                            <div class="platform-info">
+                                <h3>LeetCode</h3>
+                                <p>Daily problem solving and contest participation</p>
+                            </div>
+                        </div>
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-number">650+</div>
+                                <div class="stat-label">Problems Solved</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">1,789</div>
+                                <div class="stat-label">Contest Rating</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">45</div>
+                                <div class="stat-label">Contest Rank</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">89%</div>
+                                <div class="stat-label">Acceptance Rate</div>
+                            </div>
+                        </div>
+                        <a href="#" class="profile-link">View LeetCode Profile →</a>
+                    </div>
+
+                    <div class="profile-card-large fade-in">
+                        <div class="profile-header">
+                            <div class="platform-logo codeforces">CF</div>
+                            <div class="platform-info">
+                                <h3>Codeforces</h3>
+                                <p>Competitive programming contests and practice</p>
+                            </div>
+                        </div>
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-number">Expert</div>
+                                <div class="stat-label">Current Rank</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">1,642</div>
+                                <div class="stat-label">Max Rating</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">75</div>
+                                <div class="stat-label">Contests</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">380+</div>
+                                <div class="stat-label">Problems Solved</div>
+                            </div>
+                        </div>
+                        <a href="#" class="profile-link">View Codeforces Profile →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <div class="container">
+                <h2 class="section-title">Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card fade-in">
+                        <div class="project-header">
+                            <div class="project-icon">🔍</div>
+                            <h3 class="project-title">Algorithm Visualizer</h3>
+                            <p class="project-description">Interactive web application that visualizes sorting algorithms, graph traversals, and pathfinding algorithms with customizable parameters and real-time animations.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">HTML5 Canvas</span>
+                                <span class="tech-tag">CSS3</span>
+                                <span class="tech-tag">D3.js</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <a href="#" class="project-link link-primary">Live Demo</a>
+                            <a href="#" class="project-link link-secondary">GitHub</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card fade-in">
+                        <div class="project-header">
+                            <div class="project-icon">💬</div>
+                            <h3 class="project-title">Real-time Chat App</h3>
+                            <p class="project-description">Full-stack chat application with real-time messaging, user authentication, file sharing, and room management using modern web technologies.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">Socket.io</span>
+                                <span class="tech-tag">MongoDB</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <a href="#" class="project-link link-primary">Live Demo</a>
+                            <a href="#" class="project-link link-secondary">GitHub</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card fade-in">
+                        <div class="project-header">
+                            <div class="project-icon">📊</div>
+                            <h3 class="project-title">Data Structures Library</h3>
+                            <p class="project-description">Comprehensive C++ library implementing advanced data structures including segment trees, fenwick trees, and disjoint set union with comprehensive documentation.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">C++</span>
+                                <span class="tech-tag">CMake</span>
+                                <span class="tech-tag">Google Test</span>
+                                <span class="tech-tag">Doxygen</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <a href="#" class="project-link link-primary">Documentation</a>
+                            <a href="#" class="project-link link-secondary">GitHub</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card fade-in">
+                        <div class="project-header">
+                            <div class="project-icon">🤖</div>
+                            <h3 class="project-title">Contest Tracker Bot</h3>
+                            <p class="project-description">Discord bot that tracks upcoming programming contests, sends reminders, analyzes user performance, and provides personalized practice recommendations.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Discord.py</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">APIs</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <a href="#" class="project-link link-primary">Invite Bot</a>
+                            <a href="#" class="project-link link-secondary">GitHub</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card fade-in">
+                        <div class="project-header">
+                            <div class="project-icon">📚</div>
+                            <h3 class="project-title">Study Schedule Optimizer</h3>
+                            <p class="project-description">Machine learning-powered study planner that optimizes study schedules based on learning patterns, deadlines, and performance analytics.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Scikit-learn</span>
+                                <span class="tech-tag">Flask</span>
+                                <span class="tech-tag">React</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <a href="#" class="project-link link-primary">Try It</a>
+                            <a href="#" class="project-link link-secondary">GitHub</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card fade-in">
+                        <div class="project-header">
+                            <div class="project-icon">🎮</div>
+                            <h3 class="project-title">Multiplayer Game Engine</h3>
+                            <p class="project-description">Lightweight 2D game engine with networking capabilities, physics simulation, and level editor built from scratch for educational purposes.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">C++</span>
+                                <span class="tech-tag">OpenGL</span>
+                                <span class="tech-tag">SDL2</span>
+                                <span class="tech-tag">Networking</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <a href="#" class="project-link link-primary">Play Demo</a>
+                            <a href="#" class="project-link link-secondary">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>© 2024 Sarah Johnson. Built with HTML, CSS, and JavaScript.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">GitHub</a>
+                    <a href="#" class="social-link">LinkedIn</a>
+                    <a href="#" class="social-link">Twitter</a>
+                    <a href="#" class="social-link">Email</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with fade-in class
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Active navigation link highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
